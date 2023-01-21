@@ -382,5 +382,10 @@
       </build>
     </profile>
   </profiles>
-
+<distributionManagement>
+    <repository>
+      <id>local-dev</id>
+      <url>https://jfrogdev34.jfrog.io/artifactory/local-dev/</url>
+    </repository>
+  </distributionManagement>
 </project>

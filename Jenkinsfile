@@ -19,5 +19,10 @@ pipeline {
                 }
             }
         }
+        stage('Publish to Jfrog') {
+            withMaven(mavenSettingsConfig: 'MavenGlobalSetting'){
+                sh './mvnw clean deploy'
+            }
+            }
     }
 }

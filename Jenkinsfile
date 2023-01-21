@@ -5,13 +5,13 @@ pipeline {
             steps {
                 git url: 'https://github.com/aishwarya-nandapurkar/spring-petclinic.git', branch: 'main'
 
-                sh "mvn -DskipTests clean package"
+                sh "./mvnw -DskipTests clean package"
 
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                sh './mvnw test'
             }
             post {
                 always {

@@ -12,17 +12,7 @@ pipeline {
 
                 }
             }
-            stage('Tests') {
-                        steps {
-                            sh './mvnw surefire:test'
-                        }
-                        post {
-                            always {
-                                junit 'target/surefire-reports/*.xml'
-                            }
-                        }
-                    }
-        stage('Package') {
+             stage('Package') {
             steps {
                 git url: 'https://github.com/aishwarya-nandapurkar/spring-petclinic.git', branch: 'main'
 
@@ -30,6 +20,16 @@ pipeline {
 
             }
         }
+        stage('Tests') {
+                                steps {
+                                    sh './mvnw test'
+                                }
+                                post {
+                                    always {
+                                        junit 'target/surefire-reports/*.xml'
+                                    }
+                                }
+                            }
 
         stage('Deploy Jars') {
             steps{

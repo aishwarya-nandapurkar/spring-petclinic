@@ -3,15 +3,15 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                git 'https://github.com/aishwarya-nandapurkar/spring-petclinic.git'
+                git url: 'https://github.com/aishwarya-nandapurkar/spring-petclinic.git'
 
-                sh "./mvnw -DskipTests clean package"
+                sh "mvn -DskipTests clean package"
 
             }
         }
         stage('Test') {
             steps {
-                sh './mvnw test'
+                sh 'mvn test'
             }
             post {
                 always {

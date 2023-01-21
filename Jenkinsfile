@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                git url: 'https://github.com/aishwarya-nandapurkar/spring-petclinic.git'
+                git url: 'https://github.com/aishwarya-nandapurkar/spring-petclinic.git', branch: 'main'
 
                 sh "mvn -DskipTests clean package"
 

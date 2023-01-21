@@ -20,9 +20,11 @@ pipeline {
             }
         }
         stage('Publish to Jfrog') {
-            withMaven(mavenSettingsConfig: 'MavenGlobalSetting'){
-                sh './mvnw clean deploy'
-            }
+            steps{
+                   configFileProvider([configFile(fileId: '0b2813be-f9a6-47e6-9b6b-e67009aa3108', variable: 'MAVEN_SETTINGS_XML')]) {
+                        sh './mvnw -s $MAVEN_SETTINGS_XML clean deploy'
+                    }
+                }
             }
     }
 }

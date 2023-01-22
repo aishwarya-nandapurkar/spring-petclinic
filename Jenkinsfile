@@ -8,13 +8,23 @@ pipeline {
         dockerImage = ''
       }
     stages {
-    stage('Clean') {
+    stage('Compile') {
                 steps {
-                    sh "./mvnw clean"
+                    sh "./mvnw clean compile"
 
                 }
             }
-             stage('Package') {
+            stage('Tests') {
+                                            steps {
+                                                sh './mvnw test'
+                                            }
+                                            post {
+                                                always {
+                                                    junit 'target/surefire-reports/*.xml'
+                                                }
+                                            }
+                                        }
+        stage('Package') {
             steps {
                 git url: 'https://github.com/aishwarya-nandapurkar/spring-petclinic.git', branch: 'main'
 
@@ -22,16 +32,6 @@ pipeline {
 
             }
         }
-        stage('Tests') {
-                                steps {
-                                    sh './mvnw test'
-                                }
-                                post {
-                                    always {
-                                        junit 'target/surefire-reports/*.xml'
-                                    }
-                                }
-                            }
 
         stage('Deploy Jars') {
             steps{

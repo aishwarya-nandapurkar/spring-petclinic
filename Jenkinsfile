@@ -1,8 +1,9 @@
 pipeline {
     agent any
     environment {
+        ARTIFACTORY_ID = readMavenPom().getArtifactId().toLowerCase()
         VERSION = readMavenPom().getVersion().toLowerCase()
-        registry = "jfrogdev34.jfrog.io/docker-dev/spring-petclinic/$VERSION"
+        registry = "jfrogdev34.jfrog.io/docker-dev/$ARTIFACTORY_ID/$VERSION"
         registryCredential = 'jfrog-docker'
         dockerImage = ''
       }
@@ -49,7 +50,7 @@ pipeline {
                 stage('Deploy Image') {
                   steps{
                     script {
-                      docker.withRegistry( 'https://jfrogdev34.jfrog.io', registryCredential ) {
+                      docker.withRegistry( 'https://$registry', registryCredential ) {
                         dockerImage.push()
                       }
                     }

@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        registry = "https://jfrogdev34.jfrog.io/docker-dev/spring-petclinic"
+        registry = "jfrogdev34.jfrog.io/docker-dev/spring-petclinic"
         registryCredential = 'jfrog-docker'
         dockerImage = ''
       }
@@ -48,7 +48,7 @@ pipeline {
                 stage('Deploy Image') {
                   steps{
                     script {
-                      docker.withRegistry( registry, registryCredential ) {
+                      docker.withRegistry( 'https://jfrogdev34.jfrog.io', registryCredential ) {
                         dockerImage.push()
                       }
                     }

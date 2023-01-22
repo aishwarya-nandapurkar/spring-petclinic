@@ -227,17 +227,17 @@
 
   <repositories>
     <repository>
-      <id>spring-snapshots</id>
+      <id>bintray-snapshot</id>
       <name>Spring Snapshots</name>
-      <url>https://repo.spring.io/snapshot</url>
+      <url>https://jcenter.bintray.com</url>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
     </repository>
     <repository>
-      <id>spring-milestones</id>
+      <id>bintray</id>
       <name>Spring Milestones</name>
-      <url>https://repo.spring.io/milestone</url>
+      <url>https://jcenter.bintray.com</url>
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
@@ -246,23 +246,22 @@
 
   <pluginRepositories>
     <pluginRepository>
-      <id>spring-snapshots</id>
+      <id>bintray-plugins</id>
       <name>Spring Snapshots</name>
-      <url>https://repo.spring.io/snapshot</url>
+      <url>https://jcenter.bintray.com</url>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
     </pluginRepository>
     <pluginRepository>
-      <id>spring-milestones</id>
+      <id>bintray</id>
       <name>Spring Milestones</name>
-      <url>https://repo.spring.io/milestone</url>
+      <url>https://jcenter.bintray.com</url>
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
     </pluginRepository>
   </pluginRepositories>
-
   <profiles>
     <profile>
       <id>css</id>

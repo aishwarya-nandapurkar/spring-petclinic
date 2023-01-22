@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        VERSION = readMavenPom().getVersion()
+        VERSION = readMavenPom().getVersion().toLowerCase()
         registry = "jfrogdev34.jfrog.io/docker-dev/spring-petclinic/$VERSION"
         registryCredential = 'jfrog-docker'
         dockerImage = ''

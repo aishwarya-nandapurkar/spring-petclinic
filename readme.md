@@ -1,6 +1,6 @@
 # Continous integration pipeline for Spring Petclinic application
 
-##Overview
+## Overview
 This is a continous integration pipeline for the Petclinic application which triggers a new build every single time there is a fresh commit on the **main branch** or if there is any pull request that gets merged. Using Jenkins as a CI(Continous Integration) server and JFrog artifactory as the repository manager, this project intends to automate the build creation process and stores newly created jars as well as docker images in Artifactory so that those could be accessed and run whenever required.
 
 ## Prerequisites

@@ -15,7 +15,7 @@ b.Jenkins:
 1. Download latest Jenkins war file from `https://www.jenkins.io/download/`
 2. Install on your server or local depending on where you are going to run Jenkins(For this project I have installed on my local). Open cmd line and CD into the directory where Jenkins was installed. Run using : java -jar jenkins.war
 3. This should bring your Jenkins up, and you can now access it on `http://localhost:8080`
-4. Multiple plugins will need to be installed for this project, and it can be easily done by going to plugin manager : `Dashboard->Manage Jenkins->Plugin Manager`. List of these plugins is mentioned here
+4. Multiple plugins will need to be installed for this project, and it can be easily done by going to plugin manager : `Dashboard->Manage Jenkins->Plugin Manager`. List of these plugins is mentioned in the file `PluginJenkins.txt`which is at the root folder
 5. Need to add the artifactory credentials in Jenkins so that those could be used while pushing the builds to respective repos. This can be added in `Dashboard->Manage Jenkins->Credentials`. Create 2 creds here (1 for the Jar repo and other for Docker repo). Use creds created in step 2 from Jfrog prerequisites above. ![Screen Shot 2023-01-26 at 1 13 24 PM](https://user-images.githubusercontent.com/38335795/214951709-ca7f5c9f-dacd-4c85-8b51-4eb30caf8458.png)
 6. One last change needed on Jenkins is to add a Global Maven Setting file so that this can then be utilized for storing all repo locations as well as their 
 credentials so that those are not exposed on the versioning system. This file can be added at : `Dashboard->Manage Jenkins->Managed files-> Add a config`. 

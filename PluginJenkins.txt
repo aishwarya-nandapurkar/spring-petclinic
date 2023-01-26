@@ -1,0 +1,7 @@
+Maven invoker Plugin
+Maven Integration Plugin
+Config file provider plugin
+Docker Commons
+Docker Pipeline
+Authentication Tokens API Plugin
+Pipeline Utility Steps plugin
